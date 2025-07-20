@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChevronRight } from "lucide-react";
-import Link from "next/link";
 import blogPosts from "../httpActions/blogs/data";
 import { BlogCard } from "@/components/card/BlogCard";
 import { useState } from "react";
@@ -15,38 +14,20 @@ export default function Home() {
   const [visibleBlogs, setVisibleBlogs] = useState(6);
   const categories = ["All", ...Array.from(new Set(blogs.map((blog) => blog.category)))];
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [visibleCategorizedBlogs, setVisibleCategorizedBlogs] = useState(
-    blogs.slice(0, 2)
-  );
+
+  const categorizedAndFilteredBlogs = (selectedCategory === "All"
+    ? blogs
+    : blogs.filter((blog) => blog.category === selectedCategory)
+  ).slice(0, visibleBlogs);
 
   const loadMore = () => {
     setVisibleBlogs((prev) => prev + 2);
   };
 
-  const loadMoreCategorized = () => {
-    const filteredBlogs =
-      selectedCategory === "All"
-        ? blogs
-        : blogs.filter((blog) => blog.category === selectedCategory);
-    setVisibleCategorizedBlogs((prev) => [
-      ...prev,
-      ...filteredBlogs.slice(prev.length, prev.length + 2),
-    ]);
-  };
-
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
-    const filteredBlogs =
-      category === "All"
-        ? blogs
-        : blogs.filter((blog) => blog.category === category);
-    setVisibleCategorizedBlogs(filteredBlogs.slice(0, 2));
+    setVisibleBlogs(6);
   };
-
-  const filteredBlogs =
-    selectedCategory === "All"
-      ? blogs
-      : blogs.filter((blog) => blog.category === selectedCategory);
 
   return (
     <div>
@@ -75,20 +56,18 @@ export default function Home() {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">
-            <Link href="/blog/1">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold">Life Style</h2>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm">Sort By</span>
-                  <select className="border rounded px-3 py-1 text-sm">
-                    <option>Recent Post</option>
-                  </select>
-                </div>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold">Life Style</h2>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm">Sort By</span>
+                <select className="border rounded px-3 py-1 text-sm">
+                  <option>Recent Post</option>
+                </select>
               </div>
-            </Link>
+            </div>
             {/* Article Grid */}
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {blogs.slice(0, 2).map((blog) => (
+              {categorizedAndFilteredBlogs.slice(0, 2).map((blog) => (
                 <BlogCard key={blog.id} blog={blog} />
               ))}
             </div>
@@ -114,15 +93,20 @@ export default function Home() {
             <div className="mb-8">
               <h3 className="text-xl font-bold mb-4">Spot Light</h3>
               <div className="flex space-x-4 mb-4">
-                <Badge variant="secondary">Food</Badge>
-                <Badge variant="secondary">Fashion</Badge>
-                <Badge variant="secondary">Tech</Badge>
-                <Badge variant="secondary">Beauty</Badge>
-                <Badge variant="secondary">Gaming</Badge>
+                {categories.map((category) => (
+                  <Badge
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "secondary"}
+                    onClick={() => handleCategoryClick(category)}
+                    className="cursor-pointer mb-2"
+                  >
+                    {category}
+                  </Badge>
+                ))}
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {blogs.slice(0, visibleBlogs).map((blog) => (
+                {categorizedAndFilteredBlogs.map((blog) => (
                   <BlogCard key={blog.id} blog={blog} />
                 ))}
               </div>
@@ -137,39 +121,6 @@ export default function Home() {
                   LOAD MORE →
                 </Button>
               )}
-            </div>
-            {/* Posts by Category Section */}
-            <div className="mb-8">
-              <h3 className="text-xl font-bold mb-4">Posts by Category</h3>
-              <div className="flex flex-wrap space-x-4 mb-4">
-                {categories.map((category) => (
-                  <Badge
-                    key={category}
-                    variant={selectedCategory === category ? "default" : "secondary"}
-                    onClick={() => handleCategoryClick(category)}
-                    className="cursor-pointer mb-2"
-                  >
-                    {category}
-                  </Badge>
-                ))}
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {visibleCategorizedBlogs.map((blog) => (
-                  <BlogCard key={blog.id} blog={blog} />
-                ))}
-              </div>
-              <div className="text-center mt-4">
-                {visibleCategorizedBlogs.length < filteredBlogs.length && (
-                  <Button
-                    variant="outline"
-                    className="px-6 bg-transparent"
-                    onClick={loadMoreCategorized}
-                  >
-                    LOAD MORE →
-                  </Button>
-                )}
-              </div>
             </div>
           </div>
           <Sidebar />

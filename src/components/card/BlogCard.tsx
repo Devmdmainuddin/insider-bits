@@ -9,6 +9,7 @@ import { BlogPost } from "@/app/(public)/httpActions/blogs/schemas";
 export const BlogCard = ({ blog }: { blog: BlogPost }) => {
  
   return (
+    <Link href={`/blogs/${blog.slug}`}>
     <Card className="overflow-hidden -p-6">
      
       <div className="relative h-48">
@@ -31,10 +32,11 @@ export const BlogCard = ({ blog }: { blog: BlogPost }) => {
           <span>{blog.publishedAt}</span>
         </div>
         <h3 className="font-semibold mb-2">
-          <Link href={`/blogs/${blog.slug}`}>{blog.title}</Link>
+          {blog.title}
    
         </h3>
       </CardContent>
     </Card>
+    </Link>
   );
 };
