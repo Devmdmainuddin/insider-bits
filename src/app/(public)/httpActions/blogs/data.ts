@@ -56,75 +56,75 @@ const blogPosts: BlogPost[] = [
   },
   {
     "id": "4",
-    "slug": "celebrity-street-style-summer-2024",
-    "title": "Celebrity Street Style: Summer 2024",
-    "content": "<p>How stars are dressing off-duty...</p>",
+    "slug": "the-future-of-ai-in-everyday-life",
+    "title": "The Future of AI in Everyday Life",
+    "content": "<p>Exploring the impact of artificial intelligence on our daily routines...</p>",
     "author": {
-      "name": "Sophia Lee",
+      "name": "Alex Johnson",
       "avatar": "/1.png",
-      "bio": "Celebrity stylist"
+      "bio": "Tech enthusiast and AI researcher"
     },
-    "publishedAt": "12 Jun, 2024",
-    "readTime": "5 min read",
-    "views": "4.2K",
-    "likes": 312,
-    "category": "Fashion",
-    "tags": ["Celebrity", "Streetwear"],
+    "publishedAt": "18 Jul, 2024",
+    "readTime": "9 min read",
+    "views": "6.2K",
+    "likes": 512,
+    "category": "Technology",
+    "tags": ["AI", "Machine Learning", "Future"],
     "featuredImage": "/3.png"
   },
   {
     "id": "5",
-    "slug": "vintage-revival-90s-fashion-comeback",
-    "title": "Vintage Revival: 90s Fashion Comeback",
-    "content": "<p>Why 90s trends are dominating 2024...</p>",
+    "slug": "a-guide-to-mindful-eating",
+    "title": "A Guide to Mindful Eating",
+    "content": "<p>Transform your relationship with food through mindfulness...</p>",
     "author": {
-      "name": "Mia Rodriguez",
+      "name": "Dr. Sarah Davis",
       "avatar": "/1.png",
-      "bio": "Vintage fashion expert"
+      "bio": "Nutritionist and wellness coach"
     },
-    "publishedAt": "30 Apr, 2024",
+    "publishedAt": "25 Jul, 2024",
     "readTime": "7 min read",
-    "views": "2.9K",
-    "likes": 187,
-    "category": "Fashion",
-    "tags": ["Vintage", "90s"],
-    "featuredImage": "/3.png"
+    "views": "4.8K",
+    "likes": 389,
+    "category": "Health",
+    "tags": ["Mindfulness", "Nutrition", "Wellness"],
+    "featuredImage": "/1.png"
   },
   {
     "id": "6",
-    "slug": "luxury-handbags-investment-pieces-for-2024",
-    "title": "Luxury Handbags: Investment Pieces for 2024",
-    "content": "<p>Which designer bags hold their value...</p>",
+    "slug": "exploring-the-hidden-gems-of-peru",
+    "title": "Exploring the Hidden Gems of Peru",
+    "content": "<p>A travel guide to the less-traveled paths of Peru...</p>",
     "author": {
-      "name": "Olivia Wang",
+      "name": "Chris Thompson",
       "avatar": "/1.png",
-      "bio": "Luxury accessories buyer"
+      "bio": "Travel blogger and adventurer"
     },
-    "publishedAt": "8 May, 2024",
-    "readTime": "9 min read",
-    "views": "3.7K",
-    "likes": 256,
-    "category": "Fashion",
-    "tags": ["Luxury", "Handbags"],
+    "publishedAt": "30 Jul, 2024",
+    "readTime": "11 min read",
+    "views": "7.1K",
+    "likes": 634,
+    "category": "Travel",
+    "tags": ["Peru", "South America", "Adventure"],
     "featuredImage": "/3.png"
   },
   {
     "id": "7",
-    "slug": "met-gala-2024-best-dressed-breakdown",
-    "title": "Met Gala 2024: Best Dressed Breakdown",
-    "content": "<p>Analyzing this year's most iconic looks...</p>",
+    "slug": "the-art-of-making-sourdough-bread",
+    "title": "The Art of Making Sourdough Bread",
+    "content": "<p>A step-by-step guide to baking the perfect sourdough loaf...</p>",
     "author": {
-      "name": "David Park",
+      "name": "Emily White",
       "avatar": "/1.png",
-      "bio": "Red carpet analyst"
+      "bio": "Artisan baker and food blogger"
     },
-    "publishedAt": "7 May, 2024",
-    "readTime": "12 min read",
-    "views": "5.8K",
-    "likes": 498,
-    "category": "Fashion",
-    "tags": ["MetGala", "Celebrity"],
-    "featuredImage": "/3.png"
+    "publishedAt": "5 Aug, 2024",
+    "readTime": "8 min read",
+    "views": "5.5K",
+    "likes": 478,
+    "category": "Food",
+    "tags": ["Baking", "Sourdough", "Recipes"],
+    "featuredImage": "/1.png"
   },
   {
     "id": "8",
